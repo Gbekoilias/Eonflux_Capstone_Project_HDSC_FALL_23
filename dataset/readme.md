@@ -1,2 +1,2 @@
-<h1>About the dataset</h1>
+<h1> align = 'center' About the dataset</h1>
 These datasets are daily maximum and minimum temperatures (degree Celsius). It is based on a 2-meter air temperature - daily maximum and a daily minimum of the MERRA-2 Model (M2SDNXSLV v5.12.4). We used the Global Historical Climatology Network Daily (GHCNd) stations to extract corresponding temperature values from MERRA-2 datasets. The primary objective of these datasets is to provide continuous and seamless time series for hydrologic modeling and climate change adaptation applications in Africa
