@@ -43,9 +43,8 @@ def main():
         st.warning("Please select at least two weather station for forecasting.")
         return
 
-    # Choose number of lags for VAR model
-    # num_lags = st.slider("Select the number of lags for the VAR model:", min_value=1, max_value=12, value=1)
-
+    # Choose number of lags for VAR model as 4 based on experimentation
+    num_lags = 4
     # Choose number of forecast years
     forecast_years = st.slider("Select the number of forecast years:", min_value=1, max_value=10, value=1)
 
@@ -55,7 +54,7 @@ def main():
 
     # Fit VAR model
     st.subheader("VAR Model Forecasting")
-    num_lags = 4
+    
     st.write(f"Fitting VAR model for {', '.join(selected_locations)} with {num_lags} lags and forecasting for {forecast_years} years...")
     model_fitted, forecast = fit_var_model(train[selected_locations], lags=num_lags, forecast_years=forecast_years)
 
@@ -90,25 +89,6 @@ def main():
     # Update layout and show the plot
     fig.update_layout(height=600 * (len(selected_locations) // 2 + len(selected_locations) % 2), showlegend=True, width=1500)
     st.plotly_chart(fig)
-
-    # Evaluate the model
-    # st.subheader("Model Evaluation")
-
-    # # Align lengths for RMSE calculation
-    # overlap_start = max(pd.to_datetime(test.index).min(), forecast_index.min())
-    # overlap_end = min(pd.to_datetime(test.index).max(), forecast_index.max())
-
-    # test_overlap = test.loc[overlap_start:overlap_end][selected_locations]
-    # forecast_overlap = forecast_df.loc[overlap_start:overlap_end][selected_locations]
-    
-    # # Calculate RMSE
-    # rmse_result = rmse(test_overlap, forecast_overlap)
-
-    # # Round the RMSE to two decimal places
-    # rounded_rmse = np.round(rmse_result, 2)
-
-    # # Display rounded RMSE
-    # st.write(f"Root Mean Squared Error (RMSE): {rounded_rmse}")
 
     # Display forecasted values
     st.subheader("Forecasted Values")
