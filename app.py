@@ -44,7 +44,7 @@ def main():
         return
 
     # Choose number of lags for VAR model
-    num_lags = st.slider("Select the number of lags for the VAR model:", min_value=1, max_value=12, value=1)
+    # num_lags = st.slider("Select the number of lags for the VAR model:", min_value=1, max_value=12, value=1)
 
     # Choose number of forecast years
     forecast_years = st.slider("Select the number of forecast years:", min_value=1, max_value=10, value=1)
@@ -55,7 +55,7 @@ def main():
 
     # Fit VAR model
     st.subheader("VAR Model Forecasting")
-
+    num_lags = 4
     st.write(f"Fitting VAR model for {', '.join(selected_locations)} with {num_lags} lags and forecasting for {forecast_years} years...")
     model_fitted, forecast = fit_var_model(train[selected_locations], lags=num_lags, forecast_years=forecast_years)
 

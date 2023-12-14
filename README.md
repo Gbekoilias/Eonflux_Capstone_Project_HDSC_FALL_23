@@ -14,7 +14,7 @@ This Streamlit web application uses a Vector AutoRegression (VAR) model to predi
 
 ## Demo
 
-You can access the live demo of the app here: [Weather Station Prediction App](https://....streamlit.app/)
+You can access the live demo of the app here: [Weather Station Prediction App](https://weatherstation.streamlit.app/)
 
 ## Prerequisites
 
